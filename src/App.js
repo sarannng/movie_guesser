@@ -1,23 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import { db } from './Services/firebase-config';
+import {
+  collection,
+  getDocs,
+  getDoc,
+  addDoc,
+  getFirestore,
+ onSnapshot,
+ deleteDoc,
+ 
+   
+} from "firebase/firestore";
+import Otpinput from './components/optliketest';
 
 function App() {
+
+  
+  async function testdata(){
+    console.log("1") 
+    await addDoc(collection(db, "testing"), {"name": "etst"})
+    console.log("2")
+  }
+
   return (
     <div className="App">
+      <h2>Guess the movie?</h2>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        
+
+ 
+    
+        <Otpinput/>
+       
+          
       </header>
+
     </div>
   );
 }
